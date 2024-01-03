@@ -1,0 +1,77 @@
+options:
+  use-multipath:
+    type: boolean
+    default: True
+    description: |
+      Whether to use a multipath connection for iSCSI or FC in Cinder
+      volume service. Enabling multipath for VMs is managed by the
+      "use-multipath" option in the nova-compute charm.
+  protocol:
+    type: string
+    default: fc
+    description: |
+      SAN protocol to use. Choose between iscsi or fc.
+  volume-backend-name:
+    type: string
+    default: cinder-e590
+    description: |
+        Volume backend name for the backend. The default value is the
+        application name in the Juju model, e.g. "cinder-mybackend"
+        if it's deployed as `juju deploy cinder-e590 cinder-mybackend`.
+        A common backend name can be set to multiple backends with the
+        same characters so that those can be treated as a single virtual
+        backend associated with a single volume type.
+  volume_driver:
+    type: string
+    default: cinder.volume.drivers.hitachi.hbsd.hbsd_fc.HBSDFCDriver
+    description: |
+      the driver to use for interacting with the storage array
+  hitachi_rest_api_ip:
+    type: string
+    default: 1.2.3.4
+    description: |
+      the IP Address of the storage array
+  hitachi_rest_api_port:
+    type: int
+    default: 443
+    description: |
+      the port to connect to
+  hitachi_rest_user:
+    type: string
+    default: hitachiuser
+    description: |
+      the username of the storage array
+  hitachi_rest_password:
+    type: string
+    default: password
+    description: |
+      the password of the storage array
+  hitachi_storage_id:
+    type: string
+    default: "storage id"
+    description: | 
+      the storage id of the array to use
+  hitachi_pool:
+    type: string
+    default: pool0
+    description: |
+      the name of the pool to use for provisioning
+  hitachi_target_ports:
+    type: string
+    default: CL1-A,CL2-A,CL3-A,CL4-A
+    description: |
+      A comma separated list of ports
+  hitachi_compute_target_ports:
+    type: string
+    default: CL1-A,CL2-A,CL3-A,CL4-A
+    description: |
+      A comma separated list of ports
+  use_multipath_for_image_xfer:
+    type: boolean
+    default: true
+  enforce_multipath_for_image_xfer:
+    type: boolean
+    default: true
+  suppress_requests_ssl_warnings:
+    type: boolean
+    default: true

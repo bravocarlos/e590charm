@@ -1,0 +1,23 @@
+name: cinder-e590
+summary: E590 integration for OpenStack Block Storage
+maintainer: Carlos Bravo <cbravo@itcservicios.com>
+description: |
+ Cinder is the block storage service for the Openstack project.
+ .
+ This charm provides a E590 backend for Cinder
+tags:
+  - openstack
+  - storage
+  - file-servers
+  - misc
+series:
+  - jammy
+subordinate: true
+provides:
+  storage-backend:
+    interface: cinder-backend
+    scope: container
+requires:
+  juju-info:
+    interface: juju-info
+    scope: container
