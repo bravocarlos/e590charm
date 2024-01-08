@@ -56,6 +56,7 @@ class CinderCharmBase(CinderStoragePluginCharm):
                 ('enforce_multipath_for_image_xfer', True)
             ])
 
+        self._stored.is_started = True
         return options
 
 
